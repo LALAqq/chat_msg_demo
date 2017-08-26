@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>聊天信息</title>
+    <script type="text/javascript" src="../static/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../static/js/md5.js"></script>
+    <script type="text/javascript" src="../static/js/vue2.0.js"></script>
+</head>
+<body>
+    <div id="content">
+        <a class="title">
+            <span><%chat_info%></span>
+        </a>
+        <div>
+            <input v-model="send_msg_content" placeholder="输入消息" type="text">
+            <button @click="send_msg()">发送消息</button>
+        </div>
+        <div>
+            <table class="table table-hover" id="contactsList">
+                <thead>
+                <tr bgcolor="#C0C0">
+                    <th width="2%">发送者</th><th width="3%">接收者</th><th width="5%">发送时间</th><th width="8%">内容</th><th width="3%">阅读状态</th><th width="3%">删除:需要是自己发送的</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="(item, index) in msg_list">
+                    <td align="center" width="2%"><%item.sender_id%></td>
+                    <td align="center" width="3%"><%item.receiver_id%></td>
+                    <td align="center" width="5%"><%item.send_time%></td>
+                    <td align="center" width="8%"><%item.msg_content%></td>
+                    <td align="center" width="8%"><%item.status%></td>
+                    <td align="center" width="2%" style="white-space: nowrap;">
+                        <button @click="delete_msg(item)">删除消息</button>
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+function GetQueryString(name)
+{
+    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+    var r = unescape(window.location.search.substr(1)).match(reg);
+    if(r!=null)return  unescape(r[2]); return null;
+}
+var ws;  
+var vue = new Vue({
+    el:'#content',
+    delimiters: ['<%', '%>'],
+    data:{
+        msg_list:[], 
+        msg_item:{},
+        send_msg_content:'',
+        chat_info: '',
+    },
+    methods:{
+        init: function(){
+            var _initThis = this;
+            _initThis.chat_info = 'user_name: ' + GetQueryString('user_name') + ' contact_name: ' + GetQueryString('contacts_id');
+            ws = new WebSocket("ws://121.52.235.231:40002/ws/ws_msg_action?token=" + GetQueryString("token") + "&contacts_id="  + GetQueryString("contacts_id")); 
+            ws.onmessage = function (message){
+                console.log(message.data)
+                _initThis.msg_list = JSON.parse(message.data)
+            };
+            ws.onopen = function(evt){
+                ws.send(JSON.stringify({"action": "get_msg"}));
+            };
+            ws.onclose = function(evt){
+            };
+        },
+        delete_msg(item){
+            ws.send(JSON.stringify({"action":"delete_msg", "msg_id": item.msg_id}))
+        },
+        send_msg(){
+            ws.send(JSON.stringify({"action":"send_msg", "msg_content": this.send_msg_content}))
+            this.send_msg_content = ""
+        }
+    }
+}); 
+$(document).ready(function(e){
+    vue.init();
+});
+</script>
+</html>

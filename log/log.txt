@@ -1,0 +1,785 @@
+[D 2017-08-26 01:03:33,853 connection_pool.py :19] get connection from pool
+[D 2017-08-26 01:03:33,853 connection_pool.py :22] make connection
+[D 2017-08-26 01:03:33,904 connection_pool.py :32] cache connection
+[D 2017-08-26 01:03:38,929 connection_pool.py :19] get connection from pool
+[I 2017-08-26 01:03:38,939 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=2&token=51cfc400-4878-4270-af0f-e30524826b9d (127.0.0.1) 10.72ms
+[I 2017-08-26 01:03:38,977 web.py :1514] 304 GET /static/vue2.0.js (127.0.0.1) 6.10ms
+[D 2017-08-26 01:03:39,081 connection_pool.py :19] get connection from pool
+[D 2017-08-26 01:03:39,081 connection_pool.py :22] make connection
+[D 2017-08-26 01:03:39,104 connection_pool.py :19] get connection from pool
+[D 2017-08-26 01:03:39,104 connection_pool.py :22] make connection
+[D 2017-08-26 01:03:39,114 connection_pool.py :19] get connection from pool
+[D 2017-08-26 01:03:39,114 connection_pool.py :22] make connection
+[I 2017-08-26 01:10:02,157 web.py :1514] 200 GET /page/login.html (127.0.0.1) 7.34ms
+[I 2017-08-26 01:10:13,917 web.py :1514] 200 GET /msg_demo/login?user_name=2&passwd=c81e728d9d4c2f636f067f89cc14862c (127.0.0.1) 9.63ms
+[I 2017-08-26 01:10:13,957 web.py :1514] 200 GET /page/contacts.html?token=138ef049-47c7-4617-a4c3-39906fd4788a (127.0.0.1) 1.49ms
+[I 2017-08-26 01:10:29,687 web.py :1514] 200 GET /msg_demo/login?user_name=ls&passwd=c81e728d9d4c2f636f067f89cc14862c (127.0.0.1) 11.03ms
+[I 2017-08-26 01:10:29,721 web.py :1514] 200 GET /page/contacts.html?token=28e8db00-a0fa-49dd-b0f2-b2e5f8e093a9 (127.0.0.1) 1.36ms
+[I 2017-08-26 01:12:39,116 web.py :1514] 200 GET /msg_demo/login?user_name=%E6%9D%8E%E5%81%B2&passwd=c81e728d9d4c2f636f067f89cc14862c (127.0.0.1) 39.90ms
+[I 2017-08-26 01:12:39,161 web.py :1514] 200 GET /page/contacts.html?token=e430f3f9-1069-43d2-b3b5-8f5ddbb5eec7 (127.0.0.1) 9.73ms
+[I 2017-08-26 01:12:50,831 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=2&token=e430f3f9-1069-43d2-b3b5-8f5ddbb5eec7 (127.0.0.1) 6.26ms
+[I 2017-08-26 01:35:05,711 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=2&token=e430f3f9-1069-43d2-b3b5-8f5ddbb5eec7 (127.0.0.1) 26.28ms
+[W 2017-08-26 01:35:08,406 web.py :1514] 400 GET /page/chat_msg.html?contacts_id=1&token=bb48b3f3-112d-4027-be3f-66f8149044dd (127.0.0.1) 0.67ms
+[W 2017-08-26 01:35:10,457 web.py :1514] 400 GET /page/chat_msg.html?contacts_id=1&token=bb48b3f3-112d-4027-be3f-66f8149044dd (127.0.0.1) 0.62ms
+[E 2017-08-26 01:35:18,892 websocket.py :288] Uncaught exception in /ws/ws_contacts_action
+Traceback (most recent call last):
+  File "/home/cootek/demo/tornado/websocket.py", line 285, in wrapper
+    return callback(*args, **kwargs)
+  File "http.py", line 35, in wrap
+    raise tornado.web.HTTPError(400)
+HTTPError: HTTP 400: Bad Request
+[E 2017-08-26 01:35:18,893 iostream.py :319] Uncaught exception, closing connection.
+Traceback (most recent call last):
+  File "/home/cootek/demo/tornado/iostream.py", line 316, in wrapper
+    callback(*args)
+  File "/home/cootek/demo/tornado/stack_context.py", line 241, in wrapped
+    callback(*args, **kwargs)
+  File "/home/cootek/demo/tornado/httpserver.py", line 320, in _on_headers
+    self.request_callback(self._request)
+  File "/home/cootek/demo/tornado/web.py", line 1479, in __call__
+    handler._execute(transforms, *args, **kwargs)
+  File "/home/cootek/demo/tornado/websocket.py", line 143, in _execute
+    self.ws_connection.accept_connection()
+  File "/home/cootek/demo/tornado/websocket.py", line 492, in accept_connection
+    self._accept_connection()
+  File "/home/cootek/demo/tornado/websocket.py", line 541, in _accept_connection
+    self._receive_frame()
+  File "/home/cootek/demo/tornado/websocket.py", line 582, in _receive_frame
+    self.stream.read_bytes(2, self._on_frame_start)
+  File "/home/cootek/demo/tornado/iostream.py", line 162, in read_bytes
+    self._try_inline_read()
+  File "/home/cootek/demo/tornado/iostream.py", line 393, in _try_inline_read
+    self._check_closed()
+  File "/home/cootek/demo/tornado/iostream.py", line 543, in _check_closed
+    raise StreamClosedError("Stream is closed")
+StreamClosedError: Stream is closed
+[E 2017-08-26 01:35:18,895 ioloop.py :467] Exception in callback <functools.partial object at 0x7fd0740fbd08>
+Traceback (most recent call last):
+  File "/home/cootek/demo/tornado/ioloop.py", line 453, in _run_callback
+    callback()
+  File "/home/cootek/demo/tornado/stack_context.py", line 241, in wrapped
+    callback(*args, **kwargs)
+  File "/home/cootek/demo/tornado/iostream.py", line 316, in wrapper
+    callback(*args)
+  File "/home/cootek/demo/tornado/stack_context.py", line 241, in wrapped
+    callback(*args, **kwargs)
+  File "/home/cootek/demo/tornado/httpserver.py", line 320, in _on_headers
+    self.request_callback(self._request)
+  File "/home/cootek/demo/tornado/web.py", line 1479, in __call__
+    handler._execute(transforms, *args, **kwargs)
+  File "/home/cootek/demo/tornado/websocket.py", line 143, in _execute
+    self.ws_connection.accept_connection()
+  File "/home/cootek/demo/tornado/websocket.py", line 492, in accept_connection
+    self._accept_connection()
+  File "/home/cootek/demo/tornado/websocket.py", line 541, in _accept_connection
+    self._receive_frame()
+  File "/home/cootek/demo/tornado/websocket.py", line 582, in _receive_frame
+    self.stream.read_bytes(2, self._on_frame_start)
+  File "/home/cootek/demo/tornado/iostream.py", line 162, in read_bytes
+    self._try_inline_read()
+  File "/home/cootek/demo/tornado/iostream.py", line 393, in _try_inline_read
+    self._check_closed()
+  File "/home/cootek/demo/tornado/iostream.py", line 543, in _check_closed
+    raise StreamClosedError("Stream is closed")
+StreamClosedError: Stream is closed
+[E 2017-08-26 01:35:18,896 iostream.py :319] Uncaught exception, closing connection.
+Traceback (most recent call last):
+  File "/home/cootek/demo/tornado/iostream.py", line 316, in wrapper
+    callback(*args)
+  File "/home/cootek/demo/tornado/stack_context.py", line 241, in wrapped
+    callback(*args, **kwargs)
+  File "/home/cootek/demo/tornado/httpserver.py", line 217, in _on_connection_close
+    callback()
+  File "/home/cootek/demo/tornado/stack_context.py", line 241, in wrapped
+    callback(*args, **kwargs)
+  File "/home/cootek/demo/tornado/websocket.py", line 256, in on_connection_close
+    self.on_close()
+  File "http.py", line 107, in on_close
+    if  self.user_id in contacts_ws_online:
+AttributeError: 'ContactsActionWsHandler' object has no attribute 'user_id'
+[E 2017-08-26 01:35:18,896 ioloop.py :467] Exception in callback <functools.partial object at 0x7fd0740fbd60>
+Traceback (most recent call last):
+  File "/home/cootek/demo/tornado/ioloop.py", line 453, in _run_callback
+    callback()
+  File "/home/cootek/demo/tornado/stack_context.py", line 241, in wrapped
+    callback(*args, **kwargs)
+  File "/home/cootek/demo/tornado/iostream.py", line 316, in wrapper
+    callback(*args)
+  File "/home/cootek/demo/tornado/stack_context.py", line 241, in wrapped
+    callback(*args, **kwargs)
+  File "/home/cootek/demo/tornado/httpserver.py", line 217, in _on_connection_close
+    callback()
+  File "/home/cootek/demo/tornado/stack_context.py", line 241, in wrapped
+    callback(*args, **kwargs)
+  File "/home/cootek/demo/tornado/websocket.py", line 256, in on_connection_close
+    self.on_close()
+  File "http.py", line 107, in on_close
+    if  self.user_id in contacts_ws_online:
+AttributeError: 'ContactsActionWsHandler' object has no attribute 'user_id'
+[I 2017-08-26 01:35:25,205 web.py :1514] 200 GET /msg_demo/login?user_name=3&passwd=eccbc87e4b5ce2fe28308fd9f2a7baf3 (127.0.0.1) 24.37ms
+[I 2017-08-26 01:35:25,269 web.py :1514] 200 GET /page/contacts.html?token=1fed1eed-364a-4840-bb79-a8111bd9b73c (127.0.0.1) 4.91ms
+[I 2017-08-26 01:35:25,332 web.py :1514] 304 GET /static/vue2.0.js (127.0.0.1) 12.08ms
+[W 2017-08-26 01:37:36,809 web.py :1514] 400 GET /page/contacts.html?token=1fed1eed-364a-4840-bb79-a8111bd9b73c (127.0.0.1) 0.59ms
+[I 2017-08-26 01:37:47,913 web.py :1514] 200 GET /msg_demo/login?user_name=3&passwd=eccbc87e4b5ce2fe28308fd9f2a7baf3 (127.0.0.1) 22.71ms
+[W 2017-08-26 01:37:47,976 web.py :1514] 400 GET /page/contacts.html?token=4b5febf9-707f-462b-b57e-7a904dd85c8e (127.0.0.1) 0.39ms
+[I 2017-08-26 01:37:58,819 web.py :1514] 200 GET /msg_demo/login?user_name=3&passwd=eccbc87e4b5ce2fe28308fd9f2a7baf3 (127.0.0.1) 34.64ms
+[W 2017-08-26 01:37:58,880 web.py :1514] 400 GET /page/contacts.html?token=e4005e2b-753f-4033-8de8-00a39b0ca337 (127.0.0.1) 0.36ms
+[W 2017-08-26 01:39:06,209 web.py :1514] 400 GET /page/contacts.html?token=e4005e2b-753f-4033-8de8-00a39b0ca337 (127.0.0.1) 0.50ms
+[W 2017-08-26 01:39:19,316 web.py :1514] 400 GET /page/contacts.html?token=e4005e2b-753f-4033-8de8-00a39b0ca337 (127.0.0.1) 0.41ms
+[W 2017-08-26 01:39:44,791 web.py :1514] 400 GET /page/contacts.html?token=e4005e2b-753f-4033-8de8-00a39b0ca337 (127.0.0.1) 0.93ms
+[W 2017-08-26 01:39:49,789 web.py :1514] 400 GET /page/contacts.html?token=e4005e2b-753f-4033-8de8-00a39b0ca337 (127.0.0.1) 0.65ms
+[I 2017-08-26 01:40:29,959 http.py :33] user_id is:3
+[I 2017-08-26 01:40:29,965 web.py :1514] 200 GET /page/contacts.html?token=e4005e2b-753f-4033-8de8-00a39b0ca337 (127.0.0.1) 7.33ms
+[I 2017-08-26 01:40:30,065 http.py :33] user_id is:3
+[I 2017-08-26 01:40:37,888 http.py :33] user_id is:3
+[I 2017-08-26 01:40:37,896 web.py :1514] 200 GET /page/contacts.html?token=e4005e2b-753f-4033-8de8-00a39b0ca337 (127.0.0.1) 9.30ms
+[I 2017-08-26 01:40:37,978 http.py :33] user_id is:3
+[I 2017-08-26 01:40:55,941 http.py :33] user_id is:3
+[W 2017-08-26 01:40:55,950 web.py :1514] 400 GET /page/chat_msg.html?contacts_id=%E6%9D%8E%E5%81%B2&token=e4005e2b-753f-4033-8de8-00a39b0ca337 (127.0.0.1) 10.16ms
+[I 2017-08-26 01:42:10,765 http.py :33] user_id is:3
+[E 2017-08-26 01:42:10,768 http.py :50] 
+Traceback (most recent call last):
+  File "http.py", line 47, in wrap
+    assert db_controller.verify_contacts(handler.user_id, contacts_id)
+AssertionError
+[W 2017-08-26 01:42:10,769 web.py :1514] 400 GET /page/chat_msg.html?contacts_id=%E6%9D%8E%E5%81%B2&token=e4005e2b-753f-4033-8de8-00a39b0ca337 (127.0.0.1) 4.84ms
+[I 2017-08-26 01:43:35,301 http.py :33] user_id is:3
+[E 2017-08-26 01:43:35,326 http.py :51] 
+Traceback (most recent call last):
+  File "http.py", line 48, in wrap
+    assert db_controller.verify_contacts(handler.user_id, contacts_id)
+AssertionError
+[W 2017-08-26 01:43:35,326 web.py :1514] 400 GET /page/chat_msg.html?contacts_id=%E6%9D%8E%E5%81%B2&token=e4005e2b-753f-4033-8de8-00a39b0ca337 (127.0.0.1) 26.08ms
+[I 2017-08-26 01:45:02,460 http.py :34] user_id is:3
+[I 2017-08-26 01:45:02,473 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=%E6%9D%8E%E5%81%B2&token=e4005e2b-753f-4033-8de8-00a39b0ca337 (127.0.0.1) 13.93ms
+[I 2017-08-26 01:45:02,584 http.py :34] user_id is:3
+[E 2017-08-26 01:45:02,620 http.py :52] 
+Traceback (most recent call last):
+  File "http.py", line 49, in wrap
+    assert db_controller.verify_contacts(handler.user_id, contacts_id)
+AssertionError
+[E 2017-08-26 01:45:02,620 websocket.py :288] Uncaught exception in /ws/ws_msg_action
+Traceback (most recent call last):
+  File "/home/cootek/demo/tornado/websocket.py", line 285, in wrapper
+    return callback(*args, **kwargs)
+  File "http.py", line 40, in wrap
+    return func(handler, *args, **kwargs)
+  File "http.py", line 53, in wrap
+    raise tornado.web.HTTPError(400)
+HTTPError: HTTP 400: Bad Request
+[E 2017-08-26 01:45:02,621 iostream.py :319] Uncaught exception, closing connection.
+Traceback (most recent call last):
+  File "/home/cootek/demo/tornado/iostream.py", line 316, in wrapper
+    callback(*args)
+  File "/home/cootek/demo/tornado/stack_context.py", line 241, in wrapped
+    callback(*args, **kwargs)
+  File "/home/cootek/demo/tornado/httpserver.py", line 320, in _on_headers
+    self.request_callback(self._request)
+  File "/home/cootek/demo/tornado/web.py", line 1479, in __call__
+    handler._execute(transforms, *args, **kwargs)
+  File "/home/cootek/demo/tornado/websocket.py", line 143, in _execute
+    self.ws_connection.accept_connection()
+  File "/home/cootek/demo/tornado/websocket.py", line 492, in accept_connection
+    self._accept_connection()
+  File "/home/cootek/demo/tornado/websocket.py", line 541, in _accept_connection
+    self._receive_frame()
+  File "/home/cootek/demo/tornado/websocket.py", line 582, in _receive_frame
+    self.stream.read_bytes(2, self._on_frame_start)
+  File "/home/cootek/demo/tornado/iostream.py", line 162, in read_bytes
+    self._try_inline_read()
+  File "/home/cootek/demo/tornado/iostream.py", line 393, in _try_inline_read
+    self._check_closed()
+  File "/home/cootek/demo/tornado/iostream.py", line 543, in _check_closed
+    raise StreamClosedError("Stream is closed")
+StreamClosedError: Stream is closed
+[E 2017-08-26 01:45:02,622 ioloop.py :467] Exception in callback <functools.partial object at 0x7fb8f911d8e8>
+Traceback (most recent call last):
+  File "/home/cootek/demo/tornado/ioloop.py", line 453, in _run_callback
+    callback()
+  File "/home/cootek/demo/tornado/stack_context.py", line 241, in wrapped
+    callback(*args, **kwargs)
+  File "/home/cootek/demo/tornado/iostream.py", line 316, in wrapper
+    callback(*args)
+  File "/home/cootek/demo/tornado/stack_context.py", line 241, in wrapped
+    callback(*args, **kwargs)
+  File "/home/cootek/demo/tornado/httpserver.py", line 320, in _on_headers
+    self.request_callback(self._request)
+  File "/home/cootek/demo/tornado/web.py", line 1479, in __call__
+    handler._execute(transforms, *args, **kwargs)
+  File "/home/cootek/demo/tornado/websocket.py", line 143, in _execute
+    self.ws_connection.accept_connection()
+  File "/home/cootek/demo/tornado/websocket.py", line 492, in accept_connection
+    self._accept_connection()
+  File "/home/cootek/demo/tornado/websocket.py", line 541, in _accept_connection
+    self._receive_frame()
+  File "/home/cootek/demo/tornado/websocket.py", line 582, in _receive_frame
+    self.stream.read_bytes(2, self._on_frame_start)
+  File "/home/cootek/demo/tornado/iostream.py", line 162, in read_bytes
+    self._try_inline_read()
+  File "/home/cootek/demo/tornado/iostream.py", line 393, in _try_inline_read
+    self._check_closed()
+  File "/home/cootek/demo/tornado/iostream.py", line 543, in _check_closed
+    raise StreamClosedError("Stream is closed")
+StreamClosedError: Stream is closed
+[I 2017-08-26 01:46:01,473 http.py :34] user_id is:3
+[I 2017-08-26 01:46:01,488 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=%E6%9D%8E%E5%81%B2&token=e4005e2b-753f-4033-8de8-00a39b0ca337 (127.0.0.1) 15.28ms
+[I 2017-08-26 01:46:01,584 http.py :34] user_id is:3
+[E 2017-08-26 01:46:01,614 http.py :52] 
+Traceback (most recent call last):
+  File "http.py", line 49, in wrap
+    assert db_controller.verify_contacts(handler.user_id, contacts_id)
+AssertionError
+[E 2017-08-26 01:46:01,614 websocket.py :288] Uncaught exception in /ws/ws_msg_action
+Traceback (most recent call last):
+  File "/home/cootek/demo/tornado/websocket.py", line 285, in wrapper
+    return callback(*args, **kwargs)
+  File "http.py", line 40, in wrap
+    return func(handler, *args, **kwargs)
+  File "http.py", line 53, in wrap
+    raise tornado.web.HTTPError(400)
+HTTPError: HTTP 400: Bad Request
+[E 2017-08-26 01:46:01,615 iostream.py :319] Uncaught exception, closing connection.
+Traceback (most recent call last):
+  File "/home/cootek/demo/tornado/iostream.py", line 316, in wrapper
+    callback(*args)
+  File "/home/cootek/demo/tornado/stack_context.py", line 241, in wrapped
+    callback(*args, **kwargs)
+  File "/home/cootek/demo/tornado/httpserver.py", line 320, in _on_headers
+    self.request_callback(self._request)
+  File "/home/cootek/demo/tornado/web.py", line 1479, in __call__
+    handler._execute(transforms, *args, **kwargs)
+  File "/home/cootek/demo/tornado/websocket.py", line 143, in _execute
+    self.ws_connection.accept_connection()
+  File "/home/cootek/demo/tornado/websocket.py", line 492, in accept_connection
+    self._accept_connection()
+  File "/home/cootek/demo/tornado/websocket.py", line 541, in _accept_connection
+    self._receive_frame()
+  File "/home/cootek/demo/tornado/websocket.py", line 582, in _receive_frame
+    self.stream.read_bytes(2, self._on_frame_start)
+  File "/home/cootek/demo/tornado/iostream.py", line 162, in read_bytes
+    self._try_inline_read()
+  File "/home/cootek/demo/tornado/iostream.py", line 393, in _try_inline_read
+    self._check_closed()
+  File "/home/cootek/demo/tornado/iostream.py", line 543, in _check_closed
+    raise StreamClosedError("Stream is closed")
+StreamClosedError: Stream is closed
+[E 2017-08-26 01:46:01,616 ioloop.py :467] Exception in callback <functools.partial object at 0x7f98053f58e8>
+Traceback (most recent call last):
+  File "/home/cootek/demo/tornado/ioloop.py", line 453, in _run_callback
+    callback()
+  File "/home/cootek/demo/tornado/stack_context.py", line 241, in wrapped
+    callback(*args, **kwargs)
+  File "/home/cootek/demo/tornado/iostream.py", line 316, in wrapper
+    callback(*args)
+  File "/home/cootek/demo/tornado/stack_context.py", line 241, in wrapped
+    callback(*args, **kwargs)
+  File "/home/cootek/demo/tornado/httpserver.py", line 320, in _on_headers
+    self.request_callback(self._request)
+  File "/home/cootek/demo/tornado/web.py", line 1479, in __call__
+    handler._execute(transforms, *args, **kwargs)
+  File "/home/cootek/demo/tornado/websocket.py", line 143, in _execute
+    self.ws_connection.accept_connection()
+  File "/home/cootek/demo/tornado/websocket.py", line 492, in accept_connection
+    self._accept_connection()
+  File "/home/cootek/demo/tornado/websocket.py", line 541, in _accept_connection
+    self._receive_frame()
+  File "/home/cootek/demo/tornado/websocket.py", line 582, in _receive_frame
+    self.stream.read_bytes(2, self._on_frame_start)
+  File "/home/cootek/demo/tornado/iostream.py", line 162, in read_bytes
+    self._try_inline_read()
+  File "/home/cootek/demo/tornado/iostream.py", line 393, in _try_inline_read
+    self._check_closed()
+  File "/home/cootek/demo/tornado/iostream.py", line 543, in _check_closed
+    raise StreamClosedError("Stream is closed")
+StreamClosedError: Stream is closed
+[I 2017-08-26 01:46:53,166 http.py :34] user_id is:3
+[I 2017-08-26 01:46:53,193 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=%E6%9D%8E%E5%81%B2&token=e4005e2b-753f-4033-8de8-00a39b0ca337 (127.0.0.1) 28.73ms
+[I 2017-08-26 01:46:53,285 http.py :34] user_id is:3
+[E 2017-08-26 01:46:53,320 http.py :53] 
+Traceback (most recent call last):
+  File "http.py", line 50, in wrap
+    assert db_controller.verify_contacts(handler.user_id, contacts_id)
+AssertionError
+[E 2017-08-26 01:46:53,320 websocket.py :288] Uncaught exception in /ws/ws_msg_action
+Traceback (most recent call last):
+  File "/home/cootek/demo/tornado/websocket.py", line 285, in wrapper
+    return callback(*args, **kwargs)
+  File "http.py", line 40, in wrap
+    return func(handler, *args, **kwargs)
+  File "http.py", line 54, in wrap
+    raise tornado.web.HTTPError(400)
+HTTPError: HTTP 400: Bad Request
+[E 2017-08-26 01:46:53,321 iostream.py :319] Uncaught exception, closing connection.
+Traceback (most recent call last):
+  File "/home/cootek/demo/tornado/iostream.py", line 316, in wrapper
+    callback(*args)
+  File "/home/cootek/demo/tornado/stack_context.py", line 241, in wrapped
+    callback(*args, **kwargs)
+  File "/home/cootek/demo/tornado/httpserver.py", line 320, in _on_headers
+    self.request_callback(self._request)
+  File "/home/cootek/demo/tornado/web.py", line 1479, in __call__
+    handler._execute(transforms, *args, **kwargs)
+  File "/home/cootek/demo/tornado/websocket.py", line 143, in _execute
+    self.ws_connection.accept_connection()
+  File "/home/cootek/demo/tornado/websocket.py", line 492, in accept_connection
+    self._accept_connection()
+  File "/home/cootek/demo/tornado/websocket.py", line 541, in _accept_connection
+    self._receive_frame()
+  File "/home/cootek/demo/tornado/websocket.py", line 582, in _receive_frame
+    self.stream.read_bytes(2, self._on_frame_start)
+  File "/home/cootek/demo/tornado/iostream.py", line 162, in read_bytes
+    self._try_inline_read()
+  File "/home/cootek/demo/tornado/iostream.py", line 393, in _try_inline_read
+    self._check_closed()
+  File "/home/cootek/demo/tornado/iostream.py", line 543, in _check_closed
+    raise StreamClosedError("Stream is closed")
+StreamClosedError: Stream is closed
+[E 2017-08-26 01:46:53,322 ioloop.py :467] Exception in callback <functools.partial object at 0x7f1d8be138e8>
+Traceback (most recent call last):
+  File "/home/cootek/demo/tornado/ioloop.py", line 453, in _run_callback
+    callback()
+  File "/home/cootek/demo/tornado/stack_context.py", line 241, in wrapped
+    callback(*args, **kwargs)
+  File "/home/cootek/demo/tornado/iostream.py", line 316, in wrapper
+    callback(*args)
+  File "/home/cootek/demo/tornado/stack_context.py", line 241, in wrapped
+    callback(*args, **kwargs)
+  File "/home/cootek/demo/tornado/httpserver.py", line 320, in _on_headers
+    self.request_callback(self._request)
+  File "/home/cootek/demo/tornado/web.py", line 1479, in __call__
+    handler._execute(transforms, *args, **kwargs)
+  File "/home/cootek/demo/tornado/websocket.py", line 143, in _execute
+    self.ws_connection.accept_connection()
+  File "/home/cootek/demo/tornado/websocket.py", line 492, in accept_connection
+    self._accept_connection()
+  File "/home/cootek/demo/tornado/websocket.py", line 541, in _accept_connection
+    self._receive_frame()
+  File "/home/cootek/demo/tornado/websocket.py", line 582, in _receive_frame
+    self.stream.read_bytes(2, self._on_frame_start)
+  File "/home/cootek/demo/tornado/iostream.py", line 162, in read_bytes
+    self._try_inline_read()
+  File "/home/cootek/demo/tornado/iostream.py", line 393, in _try_inline_read
+    self._check_closed()
+  File "/home/cootek/demo/tornado/iostream.py", line 543, in _check_closed
+    raise StreamClosedError("Stream is closed")
+StreamClosedError: Stream is closed
+[I 2017-08-26 01:50:18,224 http.py :34] user_id is:3
+[I 2017-08-26 01:50:18,248 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=%E6%9D%8E%E5%81%B2&token=e4005e2b-753f-4033-8de8-00a39b0ca337 (127.0.0.1) 31.84ms
+[I 2017-08-26 01:50:18,404 http.py :34] user_id is:3
+[E 2017-08-26 01:50:18,430 http.py :53] 
+Traceback (most recent call last):
+  File "http.py", line 50, in wrap
+    assert db_controller.verify_contacts(handler.user_id, contacts_id)
+AssertionError
+[E 2017-08-26 01:50:18,431 websocket.py :288] Uncaught exception in /ws/ws_msg_action
+Traceback (most recent call last):
+  File "/home/cootek/demo/tornado/websocket.py", line 285, in wrapper
+    return callback(*args, **kwargs)
+  File "http.py", line 40, in wrap
+    return func(handler, *args, **kwargs)
+  File "http.py", line 54, in wrap
+    raise tornado.web.HTTPError(400)
+HTTPError: HTTP 400: Bad Request
+[E 2017-08-26 01:50:18,431 iostream.py :319] Uncaught exception, closing connection.
+Traceback (most recent call last):
+  File "/home/cootek/demo/tornado/iostream.py", line 316, in wrapper
+    callback(*args)
+  File "/home/cootek/demo/tornado/stack_context.py", line 241, in wrapped
+    callback(*args, **kwargs)
+  File "/home/cootek/demo/tornado/httpserver.py", line 320, in _on_headers
+    self.request_callback(self._request)
+  File "/home/cootek/demo/tornado/web.py", line 1479, in __call__
+    handler._execute(transforms, *args, **kwargs)
+  File "/home/cootek/demo/tornado/websocket.py", line 143, in _execute
+    self.ws_connection.accept_connection()
+  File "/home/cootek/demo/tornado/websocket.py", line 492, in accept_connection
+    self._accept_connection()
+  File "/home/cootek/demo/tornado/websocket.py", line 541, in _accept_connection
+    self._receive_frame()
+  File "/home/cootek/demo/tornado/websocket.py", line 582, in _receive_frame
+    self.stream.read_bytes(2, self._on_frame_start)
+  File "/home/cootek/demo/tornado/iostream.py", line 162, in read_bytes
+    self._try_inline_read()
+  File "/home/cootek/demo/tornado/iostream.py", line 393, in _try_inline_read
+    self._check_closed()
+  File "/home/cootek/demo/tornado/iostream.py", line 543, in _check_closed
+    raise StreamClosedError("Stream is closed")
+StreamClosedError: Stream is closed
+[E 2017-08-26 01:50:18,433 ioloop.py :467] Exception in callback <functools.partial object at 0x7f4fc81df8e8>
+Traceback (most recent call last):
+  File "/home/cootek/demo/tornado/ioloop.py", line 453, in _run_callback
+    callback()
+  File "/home/cootek/demo/tornado/stack_context.py", line 241, in wrapped
+    callback(*args, **kwargs)
+  File "/home/cootek/demo/tornado/iostream.py", line 316, in wrapper
+    callback(*args)
+  File "/home/cootek/demo/tornado/stack_context.py", line 241, in wrapped
+    callback(*args, **kwargs)
+  File "/home/cootek/demo/tornado/httpserver.py", line 320, in _on_headers
+    self.request_callback(self._request)
+  File "/home/cootek/demo/tornado/web.py", line 1479, in __call__
+    handler._execute(transforms, *args, **kwargs)
+  File "/home/cootek/demo/tornado/websocket.py", line 143, in _execute
+    self.ws_connection.accept_connection()
+  File "/home/cootek/demo/tornado/websocket.py", line 492, in accept_connection
+    self._accept_connection()
+  File "/home/cootek/demo/tornado/websocket.py", line 541, in _accept_connection
+    self._receive_frame()
+  File "/home/cootek/demo/tornado/websocket.py", line 582, in _receive_frame
+    self.stream.read_bytes(2, self._on_frame_start)
+  File "/home/cootek/demo/tornado/iostream.py", line 162, in read_bytes
+    self._try_inline_read()
+  File "/home/cootek/demo/tornado/iostream.py", line 393, in _try_inline_read
+    self._check_closed()
+  File "/home/cootek/demo/tornado/iostream.py", line 543, in _check_closed
+    raise StreamClosedError("Stream is closed")
+StreamClosedError: Stream is closed
+[I 2017-08-26 01:55:17,242 http.py :34] user_id is:李偲
+[I 2017-08-26 01:55:17,259 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=2&token=e430f3f9-1069-43d2-b3b5-8f5ddbb5eec7 (127.0.0.1) 18.43ms
+[I 2017-08-26 01:55:17,396 http.py :34] user_id is:李偲
+[I 2017-08-26 01:55:23,387 http.py :34] user_id is:李偲
+[I 2017-08-26 01:55:27,184 web.py :1514] 200 GET /page/login.html (127.0.0.1) 1.37ms
+[W 2017-08-26 01:55:34,591 web.py :1514] 400 GET /msg_demo/login?user_name=%E6%9D%8E%E5%81%B2&passwd=d41d8cd98f00b204e9800998ecf8427e (127.0.0.1) 4.07ms
+[W 2017-08-26 01:55:37,544 web.py :1514] 400 GET /msg_demo/login?user_name=%E6%9D%8E%E5%81%B2&passwd=77963b7a931377ad4ab5ad6a9cd718aa (127.0.0.1) 28.15ms
+[I 2017-08-26 01:57:36,020 web.py :1514] 200 GET /page/login.html (127.0.0.1) 0.42ms
+[I 2017-08-26 02:00:20,390 web.py :1514] 200 GET /page/login.html (127.0.0.1) 5.07ms
+[I 2017-08-26 02:01:07,351 web.py :1514] 200 GET /msg_demo/login?user_name=dfadfasdafdaf&passwd=1f2414c23a7d55dddc11caa32a8e9a4a (127.0.0.1) 26.53ms
+[I 2017-08-26 02:01:07,404 http.py :34] user_id is:dfadfasdafdaf
+[I 2017-08-26 02:01:07,405 web.py :1514] 200 GET /page/contacts.html?token=df7041a8-24ec-4842-894d-9ef5533fa45d (127.0.0.1) 2.08ms
+[I 2017-08-26 02:01:07,571 http.py :34] user_id is:dfadfasdafdaf
+[W 2017-08-26 02:03:14,268 web.py :1514] 400 GET /msg_demo/login?user_name=dfadfasdafdaf&passwd=522748524ad010358705b6852b81be4c (127.0.0.1) 46.77ms
+[I 2017-08-26 02:03:17,673 web.py :1514] 200 GET /page/login.html (127.0.0.1) 0.48ms
+[I 2017-08-26 02:03:25,871 web.py :1514] 200 GET /msg_demo/login?user_name=1&passwd=c4ca4238a0b923820dcc509a6f75849b (127.0.0.1) 9.38ms
+[I 2017-08-26 02:03:25,933 http.py :34] user_id is:1
+[I 2017-08-26 02:03:25,933 web.py :1514] 200 GET /page/contacts.html?token=1e9e84b5-f2f1-473d-9bbd-09b4d098291b (127.0.0.1) 1.04ms
+[I 2017-08-26 02:03:26,082 http.py :34] user_id is:1
+[I 2017-08-26 02:03:34,778 web.py :1514] 200 GET /msg_demo/login?user_name=1&passwd=c81e728d9d4c2f636f067f89cc14862c (127.0.0.1) 7.69ms
+[I 2017-08-26 02:03:44,601 web.py :1514] 200 GET /msg_demo/login?user_name=1&passwd=c81e728d9d4c2f636f067f89cc14862c (127.0.0.1) 8.38ms
+[I 2017-08-26 02:04:35,313 web.py :1514] 200 GET /msg_demo/login?user_name=1&passwd=c81e728d9d4c2f636f067f89cc14862c (127.0.0.1) 26.43ms
+[I 2017-08-26 02:04:39,044 web.py :1514] 200 GET /msg_demo/login?user_name=1&passwd=c4ca4238a0b923820dcc509a6f75849b (127.0.0.1) 36.32ms
+[I 2017-08-26 02:04:39,086 http.py :34] user_id is:1
+[I 2017-08-26 02:04:39,091 web.py :1514] 200 GET /page/contacts.html?token=005563e8-8529-4e4a-8347-e491c5ece72f (127.0.0.1) 5.31ms
+[I 2017-08-26 02:04:39,225 http.py :34] user_id is:1
+[I 2017-08-26 02:13:53,302 http.py :38] user_id is:1
+[I 2017-08-26 02:13:53,307 web.py :1514] 200 GET /page/contacts.html?token=005563e8-8529-4e4a-8347-e491c5ece72f (127.0.0.1) 5.98ms
+[I 2017-08-26 02:13:53,447 http.py :38] user_id is:1
+[I 2017-08-26 03:18:24,537 web.py :1514] 200 GET /page/login.html (127.0.0.1) 8.52ms
+[I 2017-08-26 03:18:24,586 web.py :1514] 304 GET /static/jquery-1.8.3.min.js (127.0.0.1) 5.16ms
+[I 2017-08-26 03:18:24,587 web.py :1514] 304 GET /static/md5.js (127.0.0.1) 0.52ms
+[I 2017-08-26 03:22:01,801 web.py :1514] 200 GET /page/login.html (127.0.0.1) 0.50ms
+[I 2017-08-26 03:50:18,543 web.py :1514] 200 GET /page/login.html (127.0.0.1) 6.00ms
+[I 2017-08-26 03:50:18,579 web.py :1514] 200 GET /static/js/jquery-1.8.3.min.js (127.0.0.1) 10.45ms
+[I 2017-08-26 03:50:18,580 web.py :1514] 200 GET /static/js/md5.js (127.0.0.1) 0.90ms
+[I 2017-08-26 03:50:21,398 web.py :1514] 200 GET /msg_demo/login?user_name=2&passwd=c81e728d9d4c2f636f067f89cc14862c (127.0.0.1) 33.95ms
+[I 2017-08-26 03:50:21,454 http.py :38] user_id is:2
+[I 2017-08-26 03:50:21,455 web.py :1514] 200 GET /page/contacts.html?token=a42842e0-ceaf-4328-a1e0-1ccd9a15c9a1&user_name=2 (127.0.0.1) 3.21ms
+[I 2017-08-26 03:50:21,506 web.py :1514] 200 GET /static/js/vue2.0.js (127.0.0.1) 2.46ms
+[I 2017-08-26 03:50:21,680 http.py :38] user_id is:2
+[I 2017-08-26 03:50:34,613 http.py :38] user_id is:2
+[I 2017-08-26 03:50:34,618 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=1&token=a42842e0-ceaf-4328-a1e0-1ccd9a15c9a1&user_name=2 (127.0.0.1) 6.28ms
+[I 2017-08-26 03:50:34,729 http.py :38] user_id is:2
+[I 2017-08-26 03:50:34,752 http.py :38] user_id is:2
+[I 2017-08-26 03:50:40,245 http.py :38] user_id is:2
+[I 2017-08-26 03:50:43,187 http.py :38] user_id is:2
+[I 2017-08-26 03:50:48,573 web.py :1514] 200 GET /page/login.html (127.0.0.1) 0.89ms
+[I 2017-08-26 03:50:51,407 web.py :1514] 200 GET /msg_demo/login?user_name=1&passwd=c4ca4238a0b923820dcc509a6f75849b (127.0.0.1) 4.46ms
+[I 2017-08-26 03:50:51,438 http.py :38] user_id is:1
+[I 2017-08-26 03:50:51,439 web.py :1514] 200 GET /page/contacts.html?token=9800e924-d090-4704-b177-0e1d2666b5db&user_name=1 (127.0.0.1) 1.38ms
+[I 2017-08-26 03:50:51,547 http.py :38] user_id is:1
+[I 2017-08-26 03:50:53,405 http.py :38] user_id is:1
+[I 2017-08-26 03:50:53,410 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=2&token=9800e924-d090-4704-b177-0e1d2666b5db&user_name=1 (127.0.0.1) 4.95ms
+[I 2017-08-26 03:50:53,508 http.py :38] user_id is:1
+[I 2017-08-26 03:50:53,525 http.py :38] user_id is:1
+[I 2017-08-26 03:50:55,146 http.py :38] user_id is:1
+[I 2017-08-26 03:50:55,672 http.py :38] user_id is:1
+[I 2017-08-26 03:50:58,412 http.py :38] user_id is:2
+[I 2017-08-26 03:51:25,543 http.py :38] user_id is:1
+[I 2017-08-26 03:51:39,588 http.py :38] user_id is:2
+[I 2017-08-26 03:54:48,465 web.py :1514] 200 GET /msg_demo/login?user_name=1&passwd=c4ca4238a0b923820dcc509a6f75849b (127.0.0.1) 4.48ms
+[I 2017-08-26 03:54:48,513 http.py :38] user_id is:1
+[I 2017-08-26 03:54:48,519 web.py :1514] 200 GET /page/contacts.html?token=98120064-979f-45c4-98a4-029dfd43dde3 (127.0.0.1) 6.98ms
+[I 2017-08-26 03:54:48,629 http.py :38] user_id is:1
+[I 2017-08-26 03:54:56,446 http.py :38] user_id is:1
+[I 2017-08-26 03:54:56,470 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=2&token=98120064-979f-45c4-98a4-029dfd43dde3&user_name=null (127.0.0.1) 24.58ms
+[I 2017-08-26 03:54:56,599 http.py :38] user_id is:1
+[I 2017-08-26 03:54:56,620 http.py :38] user_id is:1
+[I 2017-08-26 03:55:13,525 web.py :1514] 200 GET /page/login.html (127.0.0.1) 1.16ms
+[I 2017-08-26 03:55:16,576 web.py :1514] 200 GET /msg_demo/login?user_name=1&passwd=c4ca4238a0b923820dcc509a6f75849b (127.0.0.1) 4.67ms
+[I 2017-08-26 03:55:16,607 http.py :38] user_id is:1
+[I 2017-08-26 03:55:16,608 web.py :1514] 200 GET /page/contacts.html?token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 1.34ms
+[I 2017-08-26 03:55:16,707 http.py :38] user_id is:1
+[I 2017-08-26 03:55:20,817 http.py :38] user_id is:1
+[I 2017-08-26 03:55:20,821 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=2&token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 4.87ms
+[I 2017-08-26 03:55:20,972 http.py :38] user_id is:1
+[I 2017-08-26 03:55:20,988 http.py :38] user_id is:1
+[I 2017-08-26 03:56:15,676 web.py :1514] 200 GET /page/login.html (127.0.0.1) 8.68ms
+[I 2017-08-26 03:56:18,528 web.py :1514] 200 GET /msg_demo/login?user_name=2&passwd=c81e728d9d4c2f636f067f89cc14862c (127.0.0.1) 3.92ms
+[I 2017-08-26 03:56:18,558 http.py :38] user_id is:2
+[I 2017-08-26 03:56:18,560 web.py :1514] 200 GET /page/contacts.html?token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 2.46ms
+[I 2017-08-26 03:56:18,655 http.py :38] user_id is:2
+[I 2017-08-26 03:56:20,624 http.py :38] user_id is:2
+[I 2017-08-26 03:56:20,629 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=1&token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 6.16ms
+[I 2017-08-26 03:56:20,781 http.py :38] user_id is:2
+[I 2017-08-26 03:56:20,798 http.py :38] user_id is:2
+[I 2017-08-26 03:59:04,050 http.py :38] user_id is:2
+[I 2017-08-26 03:59:04,092 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=1&token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 48.18ms
+[I 2017-08-26 03:59:04,176 http.py :38] user_id is:2
+[I 2017-08-26 03:59:04,208 http.py :38] user_id is:2
+[I 2017-08-26 03:59:05,466 http.py :38] user_id is:2
+[I 2017-08-26 03:59:07,152 http.py :38] user_id is:2
+[I 2017-08-26 04:01:17,872 http.py :38] user_id is:2
+[I 2017-08-26 04:01:17,887 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=1&token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 23.22ms
+[I 2017-08-26 04:01:18,025 http.py :38] user_id is:2
+[I 2017-08-26 04:01:18,048 http.py :38] user_id is:2
+[I 2017-08-26 04:01:50,284 http.py :38] user_id is:2
+[I 2017-08-26 04:01:50,309 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=1&token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 31.18ms
+[I 2017-08-26 04:01:50,448 http.py :38] user_id is:2
+[I 2017-08-26 04:01:50,488 http.py :38] user_id is:2
+[I 2017-08-26 04:02:09,825 http.py :38] user_id is:2
+[I 2017-08-26 04:02:15,937 http.py :38] user_id is:1
+[I 2017-08-26 04:02:15,944 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=2&token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 7.53ms
+[I 2017-08-26 04:02:16,058 http.py :38] user_id is:1
+[I 2017-08-26 04:02:16,107 http.py :38] user_id is:1
+[I 2017-08-26 04:02:18,808 http.py :38] user_id is:1
+[I 2017-08-26 04:02:18,809 web.py :1514] 200 GET /page/contacts.html?token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 5.34ms
+[I 2017-08-26 04:02:18,921 http.py :38] user_id is:1
+[I 2017-08-26 04:02:28,556 http.py :38] user_id is:2
+[I 2017-08-26 04:02:32,512 http.py :38] user_id is:2
+[I 2017-08-26 04:03:02,292 http.py :38] user_id is:1
+[I 2017-08-26 04:03:02,296 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=2&token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 4.55ms
+[I 2017-08-26 04:03:02,456 http.py :38] user_id is:1
+[I 2017-08-26 04:03:02,476 http.py :38] user_id is:1
+[I 2017-08-26 04:03:14,737 http.py :38] user_id is:1
+[I 2017-08-26 04:03:14,737 web.py :1514] 200 GET /page/contacts.html?token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 0.94ms
+[I 2017-08-26 04:03:14,857 http.py :38] user_id is:1
+[I 2017-08-26 04:03:27,098 http.py :38] user_id is:2
+[I 2017-08-26 04:04:13,776 http.py :38] user_id is:1
+[I 2017-08-26 04:04:13,779 web.py :1514] 200 GET /page/contacts.html?token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 14.96ms
+[I 2017-08-26 04:04:13,908 http.py :38] user_id is:1
+[I 2017-08-26 04:04:15,745 http.py :38] user_id is:1
+[I 2017-08-26 04:04:15,750 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=2&token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 6.22ms
+[I 2017-08-26 04:04:15,874 http.py :38] user_id is:1
+[I 2017-08-26 04:04:15,897 http.py :38] user_id is:1
+[I 2017-08-26 04:04:18,173 http.py :38] user_id is:2
+[I 2017-08-26 04:04:18,173 web.py :1514] 200 GET /page/contacts.html?token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 0.90ms
+[I 2017-08-26 04:04:18,300 http.py :38] user_id is:2
+[I 2017-08-26 04:04:20,007 http.py :38] user_id is:2
+[I 2017-08-26 04:04:20,018 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=1&token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 12.17ms
+[I 2017-08-26 04:04:20,171 http.py :38] user_id is:2
+[I 2017-08-26 04:04:20,204 http.py :38] user_id is:2
+[I 2017-08-26 04:04:23,566 http.py :38] user_id is:2
+[I 2017-08-26 04:04:38,824 http.py :38] user_id is:2
+[I 2017-08-26 04:04:59,195 http.py :38] user_id is:1
+[I 2017-08-26 04:04:59,226 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=2&token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 37.16ms
+[I 2017-08-26 04:04:59,348 http.py :38] user_id is:1
+[I 2017-08-26 04:04:59,372 http.py :38] user_id is:1
+[I 2017-08-26 04:05:06,496 http.py :38] user_id is:2
+[I 2017-08-26 04:05:07,155 http.py :38] user_id is:2
+[I 2017-08-26 04:05:07,951 http.py :38] user_id is:2
+[I 2017-08-26 04:05:08,550 http.py :38] user_id is:2
+[I 2017-08-26 04:05:09,272 http.py :38] user_id is:2
+[I 2017-08-26 04:05:10,347 http.py :38] user_id is:2
+[I 2017-08-26 04:05:25,832 http.py :38] user_id is:2
+[I 2017-08-26 04:05:32,312 http.py :38] user_id is:2
+[I 2017-08-26 04:10:18,318 http.py :38] user_id is:1
+[I 2017-08-26 04:10:18,327 web.py :1514] 200 GET /page/contacts.html?token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 10.01ms
+[I 2017-08-26 04:10:18,449 http.py :38] user_id is:1
+[I 2017-08-26 04:10:24,476 http.py :38] user_id is:2
+[I 2017-08-26 04:10:24,503 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=1&token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 27.64ms
+[I 2017-08-26 04:10:24,657 http.py :38] user_id is:2
+[I 2017-08-26 04:10:24,692 http.py :38] user_id is:2
+[I 2017-08-26 04:10:27,308 http.py :38] user_id is:2
+[I 2017-08-26 04:10:33,500 http.py :38] user_id is:2
+[I 2017-08-26 04:10:42,484 http.py :38] user_id is:1
+[I 2017-08-26 04:10:42,485 web.py :1514] 200 GET /page/contacts.html?token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 0.94ms
+[I 2017-08-26 04:10:42,613 http.py :38] user_id is:1
+[I 2017-08-26 04:11:01,195 http.py :38] user_id is:2
+[I 2017-08-26 04:11:01,212 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=1&token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 20.39ms
+[I 2017-08-26 04:11:01,352 http.py :38] user_id is:2
+[I 2017-08-26 04:11:01,368 http.py :38] user_id is:2
+[I 2017-08-26 04:11:04,705 http.py :38] user_id is:1
+[I 2017-08-26 04:11:04,705 web.py :1514] 200 GET /page/contacts.html?token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 1.22ms
+[I 2017-08-26 04:11:04,811 http.py :38] user_id is:1
+[I 2017-08-26 04:11:10,352 http.py :38] user_id is:2
+[I 2017-08-26 04:11:10,352 web.py :1514] 200 GET /page/contacts.html?token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 0.99ms
+[I 2017-08-26 04:11:10,461 http.py :38] user_id is:2
+[I 2017-08-26 04:12:54,557 http.py :38] user_id is:1
+[I 2017-08-26 04:12:54,569 web.py :1514] 200 GET /page/contacts.html?token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 12.15ms
+[I 2017-08-26 04:12:54,680 http.py :38] user_id is:1
+[I 2017-08-26 04:12:59,136 http.py :38] user_id is:2
+[I 2017-08-26 04:12:59,137 web.py :1514] 200 GET /page/contacts.html?token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 0.95ms
+[I 2017-08-26 04:12:59,244 http.py :38] user_id is:2
+[I 2017-08-26 04:13:01,145 http.py :38] user_id is:2
+[I 2017-08-26 04:13:01,151 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=1&token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 6.63ms
+[I 2017-08-26 04:13:01,289 http.py :38] user_id is:2
+[I 2017-08-26 04:13:01,305 http.py :38] user_id is:2
+[I 2017-08-26 04:13:50,781 http.py :38] user_id is:2
+[E 2017-08-26 04:13:50,820 http.py :58] 
+Traceback (most recent call last):
+  File "http.py", line 55, in wrap
+    assert db_controller.verify_contacts(handler.user_id, contacts_id)
+AssertionError
+[W 2017-08-26 04:13:50,820 web.py :1514] 400 GET /page/chat_msg.html?contacts_id=1&token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 40.34ms
+[I 2017-08-26 04:13:59,613 http.py :38] user_id is:1
+[I 2017-08-26 04:13:59,613 web.py :1514] 200 GET /page/contacts.html?token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 1.04ms
+[I 2017-08-26 04:13:59,726 http.py :38] user_id is:1
+[I 2017-08-26 04:14:01,661 http.py :38] user_id is:2
+[I 2017-08-26 04:14:01,662 web.py :1514] 200 GET /page/contacts.html?token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 0.94ms
+[I 2017-08-26 04:14:01,778 http.py :38] user_id is:2
+[I 2017-08-26 04:14:06,341 http.py :38] user_id is:2
+[I 2017-08-26 04:14:06,353 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=1&token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 13.01ms
+[I 2017-08-26 04:14:06,474 http.py :38] user_id is:2
+[I 2017-08-26 04:14:06,493 http.py :38] user_id is:2
+[I 2017-08-26 04:14:11,495 http.py :38] user_id is:2
+[I 2017-08-26 04:14:16,468 http.py :38] user_id is:2
+[I 2017-08-26 04:14:21,204 http.py :38] user_id is:2
+[I 2017-08-26 04:14:22,209 http.py :38] user_id is:2
+[I 2017-08-26 04:14:22,396 http.py :38] user_id is:2
+[I 2017-08-26 04:14:22,576 http.py :38] user_id is:2
+[I 2017-08-26 04:14:23,128 http.py :38] user_id is:2
+[I 2017-08-26 04:14:23,296 http.py :38] user_id is:2
+[I 2017-08-26 04:14:23,447 http.py :38] user_id is:2
+[I 2017-08-26 04:14:23,609 http.py :38] user_id is:2
+[I 2017-08-26 04:14:23,766 http.py :38] user_id is:2
+[I 2017-08-26 04:14:23,900 http.py :38] user_id is:2
+[I 2017-08-26 04:14:24,064 http.py :38] user_id is:2
+[I 2017-08-26 04:14:24,199 http.py :38] user_id is:2
+[I 2017-08-26 04:14:24,348 http.py :38] user_id is:2
+[I 2017-08-26 04:14:24,520 http.py :38] user_id is:2
+[I 2017-08-26 04:14:24,692 http.py :38] user_id is:2
+[I 2017-08-26 04:14:28,345 http.py :38] user_id is:2
+[I 2017-08-26 04:14:28,351 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=1&token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 6.29ms
+[I 2017-08-26 04:14:28,453 http.py :38] user_id is:2
+[I 2017-08-26 04:14:28,480 http.py :38] user_id is:2
+[I 2017-08-26 04:14:35,448 http.py :38] user_id is:2
+[I 2017-08-26 04:14:35,608 http.py :38] user_id is:2
+[I 2017-08-26 04:14:35,764 http.py :38] user_id is:2
+[I 2017-08-26 04:14:35,915 http.py :38] user_id is:2
+[I 2017-08-26 04:14:36,068 http.py :38] user_id is:2
+[I 2017-08-26 04:14:36,208 http.py :38] user_id is:2
+[I 2017-08-26 04:14:36,380 http.py :38] user_id is:2
+[I 2017-08-26 04:14:36,504 http.py :38] user_id is:2
+[I 2017-08-26 04:14:36,644 http.py :38] user_id is:2
+[I 2017-08-26 04:14:36,816 http.py :38] user_id is:2
+[I 2017-08-26 04:14:36,956 http.py :38] user_id is:2
+[I 2017-08-26 04:14:37,113 http.py :38] user_id is:2
+[I 2017-08-26 04:15:15,388 http.py :38] user_id is:2
+[I 2017-08-26 04:15:15,721 http.py :38] user_id is:2
+[I 2017-08-26 04:15:16,008 http.py :38] user_id is:2
+[I 2017-08-26 04:15:16,160 http.py :38] user_id is:2
+[I 2017-08-26 04:15:16,318 http.py :38] user_id is:2
+[I 2017-08-26 04:15:16,471 http.py :38] user_id is:2
+[I 2017-08-26 04:15:16,635 http.py :38] user_id is:2
+[I 2017-08-26 04:15:16,958 http.py :38] user_id is:2
+[I 2017-08-26 04:15:17,116 http.py :38] user_id is:2
+[I 2017-08-26 04:15:17,296 http.py :38] user_id is:2
+[I 2017-08-26 04:15:17,456 http.py :38] user_id is:2
+[I 2017-08-26 04:15:17,612 http.py :38] user_id is:2
+[I 2017-08-26 04:15:17,768 http.py :38] user_id is:2
+[I 2017-08-26 04:15:17,924 http.py :38] user_id is:2
+[I 2017-08-26 04:15:19,935 http.py :38] user_id is:2
+[I 2017-08-26 04:15:20,088 http.py :38] user_id is:2
+[I 2017-08-26 04:15:20,256 http.py :38] user_id is:2
+[I 2017-08-26 04:15:20,397 http.py :38] user_id is:2
+[I 2017-08-26 04:15:20,565 http.py :38] user_id is:2
+[I 2017-08-26 04:15:24,273 http.py :38] user_id is:1
+[I 2017-08-26 04:15:24,278 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=2&token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 5.65ms
+[I 2017-08-26 04:15:24,393 http.py :38] user_id is:1
+[I 2017-08-26 04:15:24,413 http.py :38] user_id is:1
+[I 2017-08-26 04:18:42,885 http.py :38] user_id is:1
+[I 2017-08-26 04:18:42,896 web.py :1514] 200 GET /page/contacts.html?token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 13.40ms
+[I 2017-08-26 04:18:42,977 http.py :38] user_id is:1
+[I 2017-08-26 04:18:55,416 http.py :38] user_id is:2
+[I 2017-08-26 04:18:55,423 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=1&token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 10.58ms
+[I 2017-08-26 04:18:55,523 http.py :38] user_id is:2
+[I 2017-08-26 04:18:55,544 http.py :38] user_id is:2
+[I 2017-08-26 04:19:04,309 http.py :38] user_id is:2
+[I 2017-08-26 04:19:04,310 web.py :1514] 200 GET /page/contacts.html?token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 1.72ms
+[I 2017-08-26 04:19:04,400 http.py :38] user_id is:2
+[I 2017-08-26 04:19:13,391 http.py :38] user_id is:2
+[I 2017-08-26 04:19:14,508 http.py :38] user_id is:2
+[I 2017-08-26 04:19:14,684 http.py :38] user_id is:2
+[I 2017-08-26 04:19:15,033 http.py :38] user_id is:2
+[I 2017-08-26 04:19:15,188 http.py :38] user_id is:2
+[I 2017-08-26 04:19:15,352 http.py :38] user_id is:2
+[I 2017-08-26 04:19:15,532 http.py :38] user_id is:2
+[I 2017-08-26 04:19:15,696 http.py :38] user_id is:2
+[I 2017-08-26 04:19:29,384 http.py :38] user_id is:1
+[I 2017-08-26 04:19:29,394 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=2&token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 14.31ms
+[I 2017-08-26 04:19:29,490 http.py :38] user_id is:1
+[I 2017-08-26 04:19:29,528 http.py :38] user_id is:1
+[I 2017-08-26 04:19:43,664 http.py :38] user_id is:1
+[I 2017-08-26 04:19:43,665 web.py :1514] 200 GET /page/contacts.html?token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 0.94ms
+[I 2017-08-26 04:19:43,756 http.py :38] user_id is:1
+[I 2017-08-26 04:24:45,045 http.py :38] user_id is:1
+[I 2017-08-26 04:24:45,055 web.py :1514] 200 GET /page/contacts.html?token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 10.63ms
+[I 2017-08-26 04:24:45,149 http.py :38] user_id is:1
+[I 2017-08-26 04:24:46,849 http.py :38] user_id is:1
+[I 2017-08-26 04:24:46,861 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=2&token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 13.08ms
+[I 2017-08-26 04:24:46,942 http.py :38] user_id is:1
+[I 2017-08-26 04:24:46,972 http.py :38] user_id is:1
+[I 2017-08-26 04:24:49,269 http.py :38] user_id is:2
+[I 2017-08-26 04:24:49,269 web.py :1514] 200 GET /page/contacts.html?token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 1.45ms
+[I 2017-08-26 04:24:49,349 http.py :38] user_id is:2
+[I 2017-08-26 04:24:52,980 http.py :38] user_id is:2
+[I 2017-08-26 04:24:52,985 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=1&token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 5.55ms
+[I 2017-08-26 04:24:53,071 http.py :38] user_id is:2
+[I 2017-08-26 04:24:53,110 http.py :38] user_id is:2
+[I 2017-08-26 04:24:54,592 http.py :38] user_id is:2
+[I 2017-08-26 04:24:54,763 http.py :38] user_id is:2
+[I 2017-08-26 04:24:54,940 http.py :38] user_id is:2
+[I 2017-08-26 04:24:55,097 http.py :38] user_id is:2
+[I 2017-08-26 04:24:55,261 http.py :38] user_id is:2
+[I 2017-08-26 04:24:55,420 http.py :38] user_id is:2
+[I 2017-08-26 04:24:55,575 http.py :38] user_id is:2
+[I 2017-08-26 04:24:55,735 http.py :38] user_id is:2
+[I 2017-08-26 04:24:55,900 http.py :38] user_id is:2
+[I 2017-08-26 04:24:56,064 http.py :38] user_id is:2
+[I 2017-08-26 04:24:56,214 http.py :38] user_id is:2
+[I 2017-08-26 04:24:56,396 http.py :38] user_id is:2
+[I 2017-08-26 04:24:56,548 http.py :38] user_id is:2
+[I 2017-08-26 04:24:56,715 http.py :38] user_id is:2
+[I 2017-08-26 04:24:56,883 http.py :38] user_id is:2
+[I 2017-08-26 04:24:57,052 http.py :38] user_id is:2
+[I 2017-08-26 04:24:57,684 http.py :38] user_id is:2
+[I 2017-08-26 04:24:57,844 http.py :38] user_id is:2
+[I 2017-08-26 04:24:58,021 http.py :38] user_id is:2
+[I 2017-08-26 04:24:58,404 http.py :38] user_id is:2
+[I 2017-08-26 04:24:58,560 http.py :38] user_id is:2
+[I 2017-08-26 04:24:59,087 http.py :38] user_id is:2
+[I 2017-08-26 04:24:59,470 http.py :38] user_id is:2
+[I 2017-08-26 04:25:00,064 http.py :38] user_id is:2
+[I 2017-08-26 04:25:15,109 http.py :38] user_id is:1
+[I 2017-08-26 04:25:41,742 http.py :38] user_id is:2
+[I 2017-08-26 04:25:44,389 http.py :38] user_id is:1
+[I 2017-08-26 04:25:44,393 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=2&token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 5.34ms
+[I 2017-08-26 04:25:44,497 http.py :38] user_id is:1
+[I 2017-08-26 04:25:44,520 http.py :38] user_id is:1
+[I 2017-08-26 04:28:18,575 http.py :38] user_id is:2
+[I 2017-08-26 04:28:18,601 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=1&token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 28.26ms
+[I 2017-08-26 04:28:18,689 http.py :38] user_id is:2
+[I 2017-08-26 04:28:18,720 http.py :38] user_id is:2
+[I 2017-08-26 04:28:21,764 http.py :38] user_id is:2
+[I 2017-08-26 04:28:27,167 http.py :38] user_id is:1
+[I 2017-08-26 04:28:27,172 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=2&token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 5.41ms
+[I 2017-08-26 04:28:27,252 http.py :38] user_id is:1
+[I 2017-08-26 04:28:27,274 http.py :38] user_id is:1
+[I 2017-08-26 04:28:29,840 http.py :38] user_id is:1
+[I 2017-08-26 04:28:29,841 web.py :1514] 200 GET /page/contacts.html?token=9df07b9a-9a3a-4ce3-9f8b-d95c5b2855b6&user_name=1 (127.0.0.1) 5.05ms
+[I 2017-08-26 04:28:29,936 http.py :38] user_id is:1
+[I 2017-08-26 04:28:32,037 http.py :38] user_id is:2
+[I 2017-08-26 04:28:32,037 web.py :1514] 200 GET /page/contacts.html?token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 0.92ms
+[I 2017-08-26 04:28:32,117 http.py :38] user_id is:2
+[I 2017-08-26 04:29:16,049 http.py :38] user_id is:1
+[I 2017-08-26 04:29:20,680 http.py :38] user_id is:2
+[I 2017-08-26 04:29:20,900 http.py :38] user_id is:2
+[I 2017-08-26 04:29:23,652 http.py :38] user_id is:1
+[I 2017-08-26 04:29:31,836 http.py :38] user_id is:2
+[I 2017-08-26 04:29:31,837 web.py :1514] 200 GET /page/contacts.html?token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 1.40ms
+[I 2017-08-26 04:29:31,924 http.py :38] user_id is:2
+[I 2017-08-26 04:29:40,076 http.py :38] user_id is:1
+[I 2017-08-26 04:29:45,390 http.py :38] user_id is:2
+[I 2017-08-26 04:29:45,395 web.py :1514] 200 GET /page/chat_msg.html?contacts_id=1&token=c4c2da05-c875-426f-8de7-d8ce59717dd8&user_name=2 (127.0.0.1) 6.12ms
+[I 2017-08-26 04:29:45,495 http.py :38] user_id is:2
+[I 2017-08-26 04:29:45,527 http.py :38] user_id is:2
+[I 2017-08-26 04:29:54,517 http.py :38] user_id is:1

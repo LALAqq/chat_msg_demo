@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>联系人</title>
+    <script type="text/javascript" src="../static/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../static/js/md5.js"></script>
+    <script type="text/javascript" src="../static/js/vue2.0.js"></script>
+</head>
+<body>
+    <div id="content">
+        <a class="title">
+            <span><%user_name%></span>
+        </a>
+        <div>
+            <input v-model="add_contacts_id" placeholder="输入联系人id" type="text">
+            <button @click="add_contacts()">添加联系人</button>
+        </div>
+        <div>
+            <table class="table table-hover" id="contactsList">
+                <thead>
+                <tr bgcolor="#C0C0">
+                    <th width="2%">联系人id</th><th width="3%">未读消息数</th><th width="8%">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="(item, index) in contact_list">
+                    <td align="center" width="2%"><%item.contacts_id%></td>
+                    <td align="center" width="3%"><%item.no_read_msg%></td>
+                    <td align="center" width="8%" style="white-space: nowrap;">
+                        <button @click="enter_chat_page(item)">进入聊天</button>
+                        <button @click="delete_contacts(item)">删除联系人</button>
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+function GetQueryString(name)
+{
+    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if(r!=null)return  unescape(r[2]); return null;
+}
+var ws;  
+var vue = new Vue({
+        el:'#content',
+        delimiters: ['<%', '%>'],
+        data:{
+            contact_list:[], 
+            contact_item:{},
+            add_contacts_id: '',
+            user_name: '',
+        },
+        methods:{
+            init: function(){
+                var _initThis = this
+                _initThis.user_name = "user_name: " + GetQueryString("user_name");
+                ws = new WebSocket("ws://121.52.235.231:40002/ws/ws_contacts_action?token=" + GetQueryString("token") );  
+                ws.onmessage = function (message){
+                    console.log(message.data)
+                    _initThis.contact_list = JSON.parse(message.data)
+                };
+                ws.onopen = function(evt){
+                    ws.send(JSON.stringify({"action": "get_contacts"}));
+                };
+                ws.onclose = function(evt){
+                };
+            },
+            enter_chat_page(item){
+                window.open('/page/chat_msg.html?contacts_id=' + item.contacts_id + "&token=" + GetQueryString("token") + "&user_name=" + GetQueryString("user_name"));
+            },
+            delete_contacts(item){
+                ws.send(JSON.stringify({"action":"delete_contacts", "contacts_id": item.contacts_id}))
+            },
+            add_contacts(){
+                ws.send(JSON.stringify({"action":"add_contacts", "contacts_id": this.add_contacts_id}))
+            }
+        }
+}); 
+$(document).ready(function(e){
+    vue.init();
+});
+</script>
+</html>
