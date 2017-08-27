@@ -131,7 +131,8 @@ class MsgActionWsHandler(tornado.websocket.WebSocketHandler):
     @verify_token
     @verify_contacts
     def open(self):  
-        chats_ws_online[self.user_id] = self
+        group_id = self.user_id + "__" + self.contacts_id
+        chats_ws_online[group_id] = self
   
     @verify_token
     @verify_contacts
@@ -152,13 +153,14 @@ class MsgActionWsHandler(tornado.websocket.WebSocketHandler):
             db_controller.delete_msg(msg_id, self.user_id, self.contacts_id)
             msg_list = db_controller.get_msg(self.user_id, self.contacts_id)
 
-        if self.contacts_id in chats_ws_online:#对方聊天页面在线，更新对方聊天信息
+        c_group_id = self.contacts_id + "__" + self.user_id
+        if c_group_id in chats_ws_online:#对方聊天页面在线，更新对方聊天信息
             cmsg_list = db_controller.get_msg(self.contacts_id, self.user_id)
             msg_list = db_controller.get_msg(self.user_id, self.contacts_id)
             try:
-                chats_ws_online[self.contacts_id].write_message(json.dumps(cmsg_list, ensure_ascii = False))
+                chats_ws_online[c_group_id].write_message(json.dumps(cmsg_list, ensure_ascii = False))
             except:
-                del chats_ws_online[self.contacts_id]
+                del chats_ws_online[c_group_id]
 
         if self.contacts_id in contacts_ws_online:#对方联系人页面在线，更对方新联系人列表信息
             contacts = db_controller.get_contacts(self.contacts_id)
