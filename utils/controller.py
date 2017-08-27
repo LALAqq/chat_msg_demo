@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
 import redis
 import logging
-import connection_pool
+import utils.connection_pool as connection_pool
 import datetime
 import uuid
 import time
 
-SQL_USER_LOGIN      = "select passwd from user_info where user_id = %s;"
-SQL_USER_CREATE     = "insert into user_info(`user_id`, `passwd`) values (%s, %s);"
 SQL_ADD_CONTACTS    =  "insert ignore into user_contacts(`user_id`, `contacts_id`, `last_read_time`) values (%s, %s, %s);"
 SQL_DEL_CONTACTS    =  "delete from user_contacts where user_id = %s and contacts_id = %s;"
 SQL_GET_USER_CONTACTS = "select user_id, contacts_id, unread_msg_cnt from user_contacts where user_id = %s;"
@@ -15,7 +13,6 @@ SQL_GET_MSG = "select msg_id, sender_id, receiver_id, send_time, msg_content, st
 SQL_UPDATE_MSG_STATUS = "update msg_record set status = 1 where sender_id = %s and receiver_id = %s;"
 SQL_UPDATE_UNREAD_CNT = "update user_contacts set unread_msg_cnt = 0, last_read_time = %s where user_id = %s and contacts_id = %s;"
 SQL_SEND_MSG = "insert ignore into msg_record(`msg_id`, `sender_id`, `receiver_id`, `msg_content`) values (%s, %s, %s, %s);"
-SQL_CHECK_CONTACTS = "select user_id from user_contacts where user_id = %s and contacts_id = %s;";
 SQL_GET_MSG_STATUS = "select status from msg_record where sender_id = %s and receiver_id = %s and msg_id = %s;"
 SQL_REDUCE_UNREAD_MSG_CNT = "update user_contacts set unread_msg_cnt = unread_msg_cnt - 1 where user_id = %s and contacts_id = %s;"
 SQL_ADD_UNREAD_MSG_CNT = "update user_contacts set unread_msg_cnt = unread_msg_cnt + 1 where user_id = %s and contacts_id = %s;"
@@ -26,41 +23,6 @@ class DBController(object):
         self.conn_pool = connection_pool.ConnectionPool(**config['db_info'])
         self.red = redis.Redis(connection_pool = redis.ConnectionPool(host = config["redis_cache"]["host"], port = config["redis_cache"]["port"], db = config["redis_cache"]["db"]))
 
-    def _create_token(self, user_id):
-        """
-        创建token，有效期为1小时
-        """
-        token = str(uuid.uuid4())
-        self.red.set(token, user_id)
-        self.red.expire(token, 3600)
-        return token
-
-    def verify_token(self, token):
-        """
-        验证token，延长有效期
-        """
-        user_id  = self.red.get(token)
-        if user_id:
-            self.red.expire(token, 3600)
-            return user_id
-        return None
-
-    def login(self, user_id, passwd):
-        """
-        进行登录/如果没有这个user_id则进行注册
-        """
-        conn = self.conn_pool.connect()
-        cur = conn.cursor()
-        try:
-            cur.execute(SQL_USER_LOGIN, (user_id,))
-            if cur.rowcount == 0:
-                cur.execute(SQL_USER_CREATE, (user_id, passwd))
-            else:
-                pw = cur.fetchone()[0]
-                assert pw == passwd
-            return self._create_token(user_id) 
-        except Exception, e:
-            return None
     
     def add_contacts(self, user_id, contacts_id):
         """
@@ -85,15 +47,6 @@ class DBController(object):
         cur.execute(SQL_DEL_CONTACTS, (user_id, contacts_id))
         conn.commit()
         return True
-
-    def verify_contacts(self, user_id, contacts_id):
-        """
-        验证联系人关系，每次对消息进行操作都会先验证下
-        """
-        conn = self.conn_pool.connect()
-        cur = conn.cursor()   
-        cur.execute(SQL_CHECK_CONTACTS, (user_id, contacts_id))
-        return  cur.rowcount == 1
 
     def get_contacts(self, user_id):
         """
