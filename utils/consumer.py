@@ -7,7 +7,6 @@ import json
 class RabMQConsumer(object):
 
     def __init__(self, amqp_url, service_name):
-        print amqp_url, service_name
         self._connection    = None
         self._channel       = None
         self._url           = amqp_url
@@ -53,7 +52,6 @@ class RabMQConsumer(object):
 
     def send_message(self, module, body):
         msg = {'msg_type': 'message', 'sender': self.service_name, 'msg_content': body}
-        pprint.pprint(msg)
         self._channel.basic_publish(exchange = module, routing_key = module,
             body = json.dumps(msg, ensure_ascii = False))
 
