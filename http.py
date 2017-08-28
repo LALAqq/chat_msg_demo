@@ -180,8 +180,9 @@ class MsgActionWsHandler(tornado.websocket.WebSocketHandler):
         self.write_message(json.dumps(msg_list, ensure_ascii = False))
   
     def on_close(self):
-        if self.user_id in chats_ws_online:
-            del chats_ws_online[self.user_id]
+        group_id = self.user_id + "__" + self.contacts_id
+        if group_id in chats_ws_online:
+            del chats_ws_online[group_id]
 
 if __name__ == '__main__':
     config = {}

@@ -1,9 +1,9 @@
 ###思路简介
 ####相关数据库
- 使用的mysql存储用户数据具体表结构见 db.sql，redis存储token
-*  user_info:存储用户id和密码
-*  user_contacts:存储用户的联系人关系以及未读消息数
-*  msg_record:存储消息信息
+使用的mysql存储用户数据具体表结构见 db.sql，redis存储token
+* user_info:存储用户id和密码
+* user_contacts:存储用户的联系人关系以及未读消息数
+* msg_record:存储消息信息
 
 ####后台逻辑介绍
 后台web框架使用tornado，使用http和websocket协议。服务器会分别维护所有在线页面的联系人页面websocket以及聊天页面websocket。当发现相关用户页面在线且信息有更新则通过websocket下发内容，具体代码见http.py。
@@ -21,3 +21,6 @@
 * 使用nginx需要配置支持websocket
 * 不支持多实例
 * 样例链接： http://121.52.235.231:40002/page/login.html
+* 如果服务器重启，数据不会丢失，但因为前端维持的websocket没有做断线重连，需要手动刷新下页面。
+* 周日提交了一个增加rabbitMQ做消息队列的版本，可以解决多实例情况,在 rabbit_service branch分支。
+
