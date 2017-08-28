@@ -125,7 +125,7 @@ class RabMQSender(object):
     def start_consuming(self):
         self.add_on_cancel_callback()
         self._consumer_tag = self._channel.basic_consume(self.on_message,
-                                                         self.QUEUE)
+                                                         self.QUEUE, no_ack = True)
 
     def on_bindok(self, unused_frame):
         self.start_consuming()

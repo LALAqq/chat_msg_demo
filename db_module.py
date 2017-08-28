@@ -39,7 +39,7 @@ class DBConsumer(consumer.RabMQConsumer):
             cid = str(msg['contacts_id'])
             self.db_controller.delete_contacts(user_id, cid)
             contacts = self.db_controller.get_contacts(user_id)
-            self.send_message({'action':MSG_TYPE_UPDATE_CONTACTS, 'user_id': user_id, 'contacts_id': cid, 'msg_list': contacts})
+            self.send_message({'action':MSG_TYPE_UPDATE_CONTACTS, 'user_id': user_id, 'contacts_id': cid, 'contacts_list': contacts})
 
         if action == 'get_msg':
             cid = str(msg['contacts_id'])
